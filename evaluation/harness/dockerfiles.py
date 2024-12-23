@@ -33,7 +33,7 @@ RUN conda config --append channels conda-forge
 
 RUN conda init
 RUN conda create -n testbed python=3.10 pip setuptools wheel -y
-RUN conda run -n testbed pip install pip-tools
+RUN conda run -n testbed pip install pip-tools code_bert_score openai==1.54.4 httpx==0.27.2 scikit-learn anndata Bio biopsykit cartopy ccobra cftime chemprop deepchem DeepPurpose eofs fau_colors geopandas geoplot h5py imblearn iris matminer matplotlib MDAnalysis mlxtend mne modnet muon netCDF4 networkx neurokit2 numpy oggm pandas phonopy Pillow prolif pykrige pymatgen qsprpred rasterio rdkit scanpy scipy scirpy scvi seaborn shap Shapely tensorflow torch tqdm xarray
 
 RUN adduser --disabled-password --gecos 'dog' nonroot
 
@@ -49,7 +49,7 @@ COPY ./config_conda_env.py /testbed/config_conda_env.py
 
 WORKDIR /testbed/
 
-RUN conda run -n testbed pip install pipreqs && python ./config_conda_env.py && conda run -n testbed pip install code_bert_score openai==1.54.4 httpx==0.27.2 scikit-learn
+RUN conda run -n testbed pip install pipreqs && python ./config_conda_env.py && conda run -n testbed pip install code_bert_score
 
 ENV OPENAI_API_KEY={openai_api_key}
 """
