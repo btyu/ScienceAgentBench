@@ -92,7 +92,7 @@ def build_image(
     # import pdb
     # pdb.set_trace()
     # Create a logger for the build process
-    logger = setup_logger(image_name, build_dir / "build_image.log")
+    logger = setup_logger(image_name, build_dir / "build_image.log")  #TODO
     logger.info(
         f"Building image {image_name}\n"
         f"Using dockerfile:\n{dockerfile}\n"
@@ -236,7 +236,7 @@ def build_instance_image(
     new_logger = False
     if logger is None:
         new_logger = True
-        logger = setup_logger(test_spec.instance_id, build_dir / "prepare_image.log")
+        logger = setup_logger(test_spec.instance_id, build_dir / "prepare_image.log")  # TODO
 
     # Get the image names and dockerfile for the instance image
     image_name = test_spec.instance_image_key
