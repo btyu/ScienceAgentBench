@@ -49,7 +49,7 @@ COPY ./config_conda_env.py /testbed/config_conda_env.py
 
 WORKDIR /testbed/
 
-RUN conda run -n testbed pip install pipreqs && python ./config_conda_env.py && conda run -n testbed pip install code_bert_score
+RUN conda run -n testbed pip install pipreqs && python ./config_conda_env.py && conda run -n testbed pip install code_bert_score openai==1.54.4
 
 ENV OPENAI_API_KEY={openai_api_key}
 """
